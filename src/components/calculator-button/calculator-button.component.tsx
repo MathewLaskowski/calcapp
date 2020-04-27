@@ -1,6 +1,12 @@
 import React from 'react'
 import { Button } from './calculator-button.styles'
 
-const CalculatorButton: React.FC = () => <Button>1</Button>
+type CalculatorButtonProps = {
+  label: string
+}
+
+const CalculatorButton: React.FC<CalculatorButtonProps> = ({ label }) => (
+  <Button>{label}</Button>
+)
 
 export default CalculatorButton
