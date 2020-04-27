@@ -24,8 +24,7 @@ const Calculator: React.FC = () => (
       <CalculatorButton label='+' />
     </Row>
     <Row>
-      <CalculatorButton label='0' />
-      <CalculatorButton label='0' />
+      <CalculatorButton label='0' size='big' />
       <CalculatorButton label='.' />
       <CalculatorButton label='=' />
     </Row>

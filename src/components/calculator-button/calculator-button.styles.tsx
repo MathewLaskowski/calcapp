@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
-export const Button = styled.div`
+type ButtonProps = {
+  size?: string
+}
+
+export const Button = styled.div<ButtonProps>`
   background-color: #354358;
   color: #D4D5D7;
-  width: 60px;
-  height: 70px;
+  width: ${ ({size}) => size === 'big' ? '124px' : '55px'};
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
