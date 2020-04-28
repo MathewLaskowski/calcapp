@@ -15,4 +15,5 @@ export const Button = styled.div<ButtonProps>`
   align-items: center;
   margin: 7px;
   font-weight: ${({bold}) => bold ? 'bold' : 'regular'};
+  cursor: pointer;
 `
