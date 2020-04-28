@@ -1,8 +1,12 @@
 import React from 'react'
 import { Result } from './calculator-result.styles';
 
-const CalculatorResult: React.FC = () => (
-  <Result>16.7</Result>
+type CalculatorResultProps = {
+  result?: number
+}
+
+const CalculatorResult: React.FC<CalculatorResultProps> = ({ result }) => (
+  <Result>{result}</Result>
 )
 
 export default CalculatorResult

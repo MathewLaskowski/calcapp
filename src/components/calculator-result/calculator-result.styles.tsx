@@ -6,4 +6,5 @@ export const Result = styled.div`
   padding: 7px;
   display: flex;
   justify-content: flex-end;
+  height: 62px;
 `
