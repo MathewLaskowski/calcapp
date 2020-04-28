@@ -3,11 +3,12 @@ import { Button } from './calculator-button.styles'
 
 type CalculatorButtonProps = {
   label: string
-  size?: 'big' | 'small'
+  size?: 'big' | 'small',
+  bold?: boolean
 }
 
-const CalculatorButton: React.FC<CalculatorButtonProps> = ({ label, size }) => (
-  <Button size={size}>{label}</Button>
+const CalculatorButton: React.FC<CalculatorButtonProps> = ({ label, size, bold }) => (
+  <Button size={size} bold={bold}>{label}</Button>
 )
 
 export default CalculatorButton

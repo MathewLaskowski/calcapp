@@ -1,4 +1,4 @@
-export const data: { label: string, size?: 'big' | 'small'}[][] = [
+export const data: { label: string, size?: 'big' | 'small', bold?: boolean}[][] = [
   [
     {
       label: 'AC'
@@ -15,13 +15,16 @@ export const data: { label: string, size?: 'big' | 'small'}[][] = [
   ],
   [
     {
-      label: '1'
+      label: '1',
+      bold: true
     },
     {
-      label: '2'
+      label: '2',
+      bold: true
     },
     {
-      label: '3'
+      label: '3',
+      bold: true
     },
     {
       label: 'x'
@@ -29,13 +32,16 @@ export const data: { label: string, size?: 'big' | 'small'}[][] = [
   ],
   [
     {
-      label: '4'
+      label: '4',
+      bold: true
     },
     {
-      label: '5'
+      label: '5',
+      bold: true
     },
     {
-      label: '6'
+      label: '6',
+      bold: true
     },
     {
       label: '-'
@@ -43,13 +49,16 @@ export const data: { label: string, size?: 'big' | 'small'}[][] = [
   ],
   [
     {
-      label: '7'
+      label: '7',
+      bold: true
     },
     {
-      label: '8'
+      label: '8',
+      bold: true
     },
     {
-      label: '9'
+      label: '9',
+      bold: true
     },
     {
       label: '+'
@@ -61,7 +70,8 @@ export const data: { label: string, size?: 'big' | 'small'}[][] = [
       size: 'big'
     },
     {
-      label: '.'
+      label: '.',
+      bold: true
     },
     {
       label: '='
