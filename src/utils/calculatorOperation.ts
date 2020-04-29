@@ -5,7 +5,7 @@ let operation: undefined | string
 let operationText: undefined | string
 let result: undefined | number
 
-const calculatorReset = () => {
+const calculatorReset = (): void => {
   value1 = undefined
   value2 = undefined
   lastButton = undefined
@@ -19,26 +19,32 @@ const operationsMap = (operation: string): (a: number, b: number) => number => {
     'x': (a, b) => a * b,
     '/': (a, b) => a / b
   }
-
   return operationsMap[operation]
+}
+
+const generateOperationText =
+  (
+    value1: number | undefined,
+    value2: number | undefined,
+    operation: string | undefined,
+    result: number | undefined
+  ): string => {
+  return `${value1 ? value1 : ''} ${operation ? operation : ''} ${value2 ? value2 : ''} ${result ? `= ${result}` : ''}`
 }
 
 const calculatorOperation = (label: string, type: string) => {
 
+  if (result) result = undefined
+
   if (type === 'value') {
     if (!value1 && !value2) {
       value1 = parseInt(label)
-      result = undefined
-      operationText =  value1.toString()
     } else if (value1 && !value2 && lastButton !== 'operation') {
       value1 = parseInt(value1 + label)
-      operationText =  value1.toString()
     } else if (!value2 && value1 && lastButton === 'operation') {
       value2 = parseInt(label)
-      operationText =  `${operationText} ${value2}`
     } else if (value2 && value1) {
       value2 = parseInt(value2 + label)
-      operationText =  `${operationText}${label}`
     }
   }
 
@@ -47,14 +53,15 @@ const calculatorOperation = (label: string, type: string) => {
   if (type === 'operation') {
     if (!operation) {
       operation = label
-      operationText = `${operationText} ${operation}`
     } else if (operation && value1 && value2 && label === '=') {
       const method: (a: number, b: number) => number = operationsMap(operation)
       result = method(value1, value2)
-      operationText = `${operationText} ${label} ${result}`
-      calculatorReset()
     }
   }
+
+  operationText = generateOperationText(value1, value2, operation, result)
+
+  if (result) calculatorReset()
 
   return {
     operationText,
