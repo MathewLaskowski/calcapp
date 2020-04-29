@@ -12,6 +12,17 @@ const calculatorReset = () => {
   operation = undefined
 }
 
+const operationsMap = (operation: string): (a: number, b: number) => number => {
+  const operationsMap: {[key: string]: (a: number, b: number) => number } = {
+    '+': (a, b) => a + b,
+    '-': (a, b) => a - b,
+    'x': (a, b) => a * b,
+    '/': (a, b) => a / b
+  }
+
+  return operationsMap[operation]
+}
+
 const calculatorOperation = (label: string, type: string) => {
 
   if (type === 'value') {
@@ -38,17 +49,10 @@ const calculatorOperation = (label: string, type: string) => {
       operation = label
       operationText = `${operationText} ${operation}`
     } else if (operation && value1 && value2 && label === '=') {
-      if (operation === '+') {
-        console.log(value1 + value2)
-        result = value1 + value2
-        operationText = `${operationText} ${label} ${value1 + value2}`
-        calculatorReset()
-      } else if (operation === '-') {
-        console.log(value1 - value2)
-        result = value1 - value2
-        operationText = `${operationText} ${label} ${value1 - value2}`
-        calculatorReset()
-      }
+      const method: (a: number, b: number) => number = operationsMap(operation)
+      result = method(value1, value2)
+      operationText = `${operationText} ${label} ${result}`
+      calculatorReset()
     }
   }
 
