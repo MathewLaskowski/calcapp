@@ -31,8 +31,8 @@ type generateOperationTextType = {
   ) : string
 }
 
-const generateOperationText: generateOperationTextType = (value1, value2, operation, result) => {
-  return `${value1 ? value1 : ''} ${operation ? operation : ''} ${value2 ? value2 : ''} ${result ? `= ${result}` : ''}`
+export const generateOperationText: generateOperationTextType = (value1, value2, operation, result) => {
+  return `${value1 ? value1 : ''} ${operation ? operation : ''} ${value2 ? value2 : ''} ${result ? `= ${result}` : ''}`.trim()
 }
 
 type CalculateValueType = {
