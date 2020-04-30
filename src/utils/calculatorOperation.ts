@@ -20,17 +20,20 @@ const operationsMap = (operation: string): (a: number, b: number) => number => {
   return operationsMap[operation]
 }
 
-const generateOperationText =
+type ValuesType = number | undefined
+
+type generateOperationTextType = {
   (
-    value1: number | undefined,
-    value2: number | undefined,
+    value1: ValuesType,
+    value2: ValuesType,
     operation: string | undefined,
-    result: number | undefined
-  ): string => {
-  return `${value1 ? value1 : ''} ${operation ? operation : ''} ${value2 ? value2 : ''} ${result ? `= ${result}` : ''}`
+    result: ValuesType
+  ) : string
 }
 
-type ValuesType = number | undefined
+const generateOperationText: generateOperationTextType = (value1, value2, operation, result) => {
+  return `${value1 ? value1 : ''} ${operation ? operation : ''} ${value2 ? value2 : ''} ${result ? `= ${result}` : ''}`
+}
 
 type CalculateValueType = {
   (
@@ -64,7 +67,7 @@ const calculateValue: CalculateValueType = (value1, value2, label, lastButton) =
   }
 }
 
-const calculatorOperation = (label: string, type: string) => {
+const calculatorOperation = (label: string, type: string): { operationText: string, result: number | undefined } => {
   let result = undefined
 
   if (type === 'value') {
@@ -76,7 +79,9 @@ const calculatorOperation = (label: string, type: string) => {
   lastButton = type
 
   if (type === 'operation') {
-    if (!operation) {
+    if (!operation && !value1) {
+      return { operationText: '', result }
+    } else if (!operation) {
       operation = label
     } else if (operation && value1 && value2 && label === '=') {
       const method: (a: number, b: number) => number = operationsMap(operation)
