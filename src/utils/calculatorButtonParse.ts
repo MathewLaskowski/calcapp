@@ -1,5 +1,5 @@
-const buttonsMap = (expression: string): string => {
-  switch (expression) {
+const calculatorButtonParse = (label: string): string => {
+  switch (label) {
     case '/':
     case 'x':
     case '-':
@@ -22,10 +22,6 @@ const buttonsMap = (expression: string): string => {
     default:
       return 'unknown'
   }
-}
-
-const calculatorButtonParse = (label: string): string => {
-  return buttonsMap(label)
 }
 
 export default calculatorButtonParse
