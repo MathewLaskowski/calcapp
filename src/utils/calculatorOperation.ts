@@ -3,14 +3,14 @@ let value2: undefined | number
 let lastButton: undefined | string
 let operation: undefined | string
 
-const calculatorReset = (): void => {
+export const calculatorReset = (): void => {
   value1 = undefined
   value2 = undefined
   lastButton = undefined
   operation = undefined
 }
 
-const operationsMap = (operation: string): (a: number, b: number) => number => {
+export const operationsMap = (operation: string): (a: number, b: number) => number => {
   const operationsMap: {[key: string]: (a: number, b: number) => number } = {
     '+': (a, b) => a + b,
     '-': (a, b) => a - b,
@@ -47,7 +47,7 @@ type CalculateValueType = {
   }
 }
 
-const calculateValue: CalculateValueType = (value1, value2, label, lastButton) => {
+export const calculateValue: CalculateValueType = (value1, value2, label, lastButton) => {
   let calculateValue1 = value1
   let calculateValue2 = value2
 
