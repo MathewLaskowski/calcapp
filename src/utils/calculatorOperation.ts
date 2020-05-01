@@ -10,14 +10,19 @@ export const calculatorReset = (): void => {
   operation = undefined
 }
 
-export const operationsMap = (operation: string): (a: number, b: number) => number => {
-  const operationsMap: {[key: string]: (a: number, b: number) => number } = {
-    '+': (a, b) => a + b,
-    '-': (a, b) => a - b,
-    'x': (a, b) => a * b,
-    '/': (a, b) => a / b
-  }
-  return operationsMap[operation]
+type operationsMapDataType = {
+  [key: string]: (a: number, b: number) => number
+}
+
+export const operationsMapData: operationsMapDataType = {
+  '+': (a, b) => a + b,
+  '-': (a, b) => a - b,
+  'x': (a, b) => a * b,
+  '/': (a, b) => a / b
+}
+
+export const operationsMap = (operationsMapData: operationsMapDataType, operation: string): (a: number, b: number) => number => {
+  return operationsMapData[operation]
 }
 
 type ValuesType = number | undefined
@@ -84,8 +89,7 @@ const calculatorOperation = (label: string, type: string): { operationText: stri
     } else if (!operation) {
       operation = label
     } else if (operation && value1 && value2 && label === '=') {
-      const method: (a: number, b: number) => number = operationsMap(operation)
-      result = method(value1, value2)
+      result = operationsMap(operationsMapData, operation)(value1, value2)
     }
   }
 

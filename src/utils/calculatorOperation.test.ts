@@ -1,4 +1,4 @@
-import calculatorOperation, { generateOperationText } from './calculatorOperation'
+import calculatorOperation, { generateOperationText, operationsMap, operationsMapData } from './calculatorOperation'
 
 describe('generateOperationText method', () => {
   it ('should return string of value1', () => {
@@ -35,12 +35,22 @@ describe('calculatorOperation method', () => {
   it('should return object with operationText and result keys', () => {
     expect(calculatorOperation('=', 'operation')).toStrictEqual(expectObject)
   })
-  // it('with value1 and value2 should return result of operation', () => {
-  //   value1 = 60
-  //   value2 = 30
-  //   operation = '+'
-  //   expectObject.operationText = '60 + 30 = 90'
-  //   expectObject.result = 90
-  //   expect(calculatorOperation('=', 'operation')).toStrictEqual(expectObject)
-  // })
+})
+
+describe('operationsMap method', () => {
+  it('on "+" should return sum function', () => {
+    expect(operationsMap(operationsMapData, '+')).toBe(operationsMapData['+'])
+  })
+
+  it('on "-" should return sub function', () => {
+    expect(operationsMap(operationsMapData, '-')).toBe(operationsMapData['-'])
+  })
+
+  it('on "/" should return div function', () => {
+    expect(operationsMap(operationsMapData, '/')).toBe(operationsMapData['/'])
+  })
+
+  it('on "x" should return multi function', () => {
+    expect(operationsMap(operationsMapData, 'x')).toBe(operationsMapData['x'])
+  })
 })
