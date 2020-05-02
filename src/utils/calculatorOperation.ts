@@ -72,7 +72,18 @@ export const calculateValue: CalculateValueType = (value1, value2, label, lastBu
   }
 }
 
-const calculatorOperation = (label: string, type: string): { operationText: string, result: number | undefined } => {
+type calculatorOperationType = {
+  (
+    label: string,
+    type: string
+  ) : {
+    operationText: string,
+    result: ValuesType
+  }
+}
+
+
+const calculatorOperation: calculatorOperationType = (label, type) => {
   let result = undefined
 
   if (type === 'value') {
