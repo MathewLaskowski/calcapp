@@ -9,15 +9,43 @@ import { Row, CalculatorLayout } from './calculator.styles'
 
 import { data } from './data';
 
+let value1: undefined | number
+let value2: undefined | number
+let lastButton: undefined | string
+let operation: undefined | string
+
 const Calculator: React.FC = () => {
 
   const [operationText, setOperationText] = useState()
   const [result, setResult] = useState()
 
   const handleClickButton = (label: string): void => {
-    const { operationText, result } = calculatorOperation(label, calculatorButtonParse(label))
+    const {
+      operationText,
+      result,
+      currentOperation,
+      calculateValue1,
+      calculateValue2
+    } = calculatorOperation(
+      label,
+      calculatorButtonParse(label),
+      value1,
+      value2,
+      lastButton,
+      operation
+    )
+    lastButton = calculatorButtonParse(label)
+    value1 = calculateValue1
+    value2 = calculateValue2
+    operation = currentOperation
     setOperationText(operationText)
     setResult(result)
+    if (result) {
+      lastButton = undefined
+      value1 = undefined
+      value2 = undefined
+      operation = undefined
+    }
   }
 
   const renderRows = () => data.map(item => (

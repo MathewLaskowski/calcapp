@@ -1,13 +1,5 @@
-let value1: undefined | number
-let value2: undefined | number
-let lastButton: undefined | string
-let operation: undefined | string
 
 export const calculatorReset = (): void => {
-  value1 = undefined
-  value2 = undefined
-  lastButton = undefined
-  operation = undefined
 }
 
 type operationsMapDataType = {
@@ -75,42 +67,71 @@ export const calculateValue: CalculateValueType = (value1, value2, label, lastBu
 type calculatorOperationType = {
   (
     label: string,
-    type: string
+    type: string,
+    value1: ValuesType,
+    value2: ValuesType,
+    lastButton: string | undefined,
+    operation: string | undefined
   ) : {
     operationText: string,
-    result: ValuesType
+    result: ValuesType,
+    currentOperation: string | undefined,
+    calculateValue1: ValuesType,
+    calculateValue2: ValuesType
   }
 }
 
 
-const calculatorOperation: calculatorOperationType = (label, type) => {
+const calculatorOperation: calculatorOperationType = (
+  label,
+  type,
+  value1,
+  value2,
+  lastButton,
+  operation
+) => {
   let result = undefined
-
-  if (type === 'value') {
-    const { calculateValue1, calculateValue2 } = calculateValue(value1, value2, label, lastButton)
-    value1 = calculateValue1;
-    value2 = calculateValue2;
+  let currentOperation = operation
+  let calculateData: {
+    calculateValue1: ValuesType
+    calculateValue2: ValuesType
+  } = {
+    calculateValue1: value1,
+    calculateValue2: value2
   }
 
-  lastButton = type
+
+  if (type === 'value') {
+    calculateData = calculateValue(value1, value2, label, lastButton)
+  }
 
   if (type === 'operation') {
-    if (!operation && !value1) {
-      return { operationText: '', result }
-    } else if (!operation) {
-      operation = label
-    } else if (operation && value1 && value2 && label === '=') {
-      result = operationsMap(operationsMapData, operation)(value1, value2)
+    if (!currentOperation && !value1) {
+      return {
+        operationText: '',
+        result,
+        currentOperation,
+        ...calculateData
+      }
+    } else if (!currentOperation) {
+      currentOperation = label
+    } else if (currentOperation && calculateData.calculateValue1 && calculateData.calculateValue2 && label === '=') {
+      result = operationsMap(operationsMapData, currentOperation)(calculateData.calculateValue1, calculateData.calculateValue2)
     }
   }
 
-  const operationText = generateOperationText(value1, value2, operation, result)
-
-  if (result) calculatorReset()
+  const operationText = generateOperationText(
+    calculateData.calculateValue1,
+    calculateData.calculateValue2,
+    currentOperation,
+    result
+  )
 
   return {
     operationText,
-    result
+    result,
+    currentOperation,
+    ...calculateData
   }
 
 }
