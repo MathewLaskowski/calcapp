@@ -1,14 +1,4 @@
-import calculatorOperation, { calculateValue, generateOperationText, operationsMap, operationsMapData } from './calculatorOperation'
-
-describe('generateOperationText method', () => {
-  it ('should return string of value1', () => {
-    expect(generateOperationText(6, undefined, undefined, undefined)).toBe('6')
-  })
-
-  it ('should return string of value2', () => {
-    expect(generateOperationText(undefined, 5, undefined, undefined)).toBe('5')
-  })
-})
+import calculatorOperation, { operationsMap, operationsMapData } from './calculatorOperation'
 
 describe('calculatorOperation method', () => {
   it('should return only value1 and operationText', () => {
@@ -37,14 +27,17 @@ describe('calculatorOperation method', () => {
       calculateValue1: 10,
       calculateValue2: 10
     }
-    expect(calculatorOperation(
+
+    const results = calculatorOperation(
       '=',
       'operation',
       10,
       10,
       'value',
       '+'
-    )).toMatchObject(expectedObject)
+    )
+    expect(results).toMatchObject(expectedObject)
+    expect(results.result).toBe(20)
   })
 
   it('should set operation after value1', () => {
@@ -99,38 +92,6 @@ describe('operationsMap method', () => {
 
   it('on "x" should return multi function', () => {
     expect(operationsMap(operationsMapData, 'x')).toBe(operationsMapData['x'])
-  })
-})
-
-describe('calculateValue method', () => {
-  it('for value1, value2 and operation value update value2', () => {
-    const expectObject = {
-      calculateValue1: 10,
-      calculateValue2: 20
-    }
-
-    expect(calculateValue(10, 2, '0', 'operation'))
-      .toMatchObject(expectObject)
-  })
-
-  it('for value1 and lastButton operation create value2', () => {
-    const expectObject = {
-      calculateValue1: 10,
-      calculateValue2: 2
-    }
-
-    expect(calculateValue(10, undefined, '2', 'operation'))
-      .toMatchObject(expectObject)
-  })
-
-  it('for value1 and lastButton value update value1', () => {
-    const expectObject = {
-      calculateValue1: 10,
-      calculateValue2: undefined
-    }
-
-    expect(calculateValue(1, undefined, '0', 'value'))
-      .toMatchObject(expectObject)
   })
 })
 

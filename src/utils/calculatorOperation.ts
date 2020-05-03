@@ -1,6 +1,5 @@
-
-export const calculatorReset = (): void => {
-}
+import { calculateValue } from './calculateValue';
+import { generateOperationText } from './generateOperationText';
 
 type operationsMapDataType = {
   [key: string]: (a: number, b: number) => number
@@ -18,51 +17,6 @@ export const operationsMap = (operationsMapData: operationsMapDataType, operatio
 }
 
 type ValuesType = number | undefined
-
-type generateOperationTextType = {
-  (
-    value1: ValuesType,
-    value2: ValuesType,
-    operation: string | undefined,
-    result: ValuesType
-  ) : string
-}
-
-export const generateOperationText: generateOperationTextType = (value1, value2, operation, result) => {
-  return `${value1 ? value1 : ''} ${operation ? operation : ''} ${value2 ? value2 : ''} ${result ? `= ${result}` : ''}`.trim()
-}
-
-type CalculateValueType = {
-  (
-    value1: ValuesType,
-    value2: ValuesType,
-    label: string,
-    lastButton: string | undefined
-  ): {
-    calculateValue1: ValuesType,
-    calculateValue2: ValuesType
-  }
-}
-
-export const calculateValue: CalculateValueType = (value1, value2, label, lastButton) => {
-  let calculateValue1 = value1
-  let calculateValue2 = value2
-
-  if (!calculateValue1 && !calculateValue2) {
-    calculateValue1 = parseInt(label)
-  } else if (calculateValue1 && !calculateValue2 && lastButton !== 'operation') {
-    calculateValue1 = parseInt(value1 + label)
-  } else if (!calculateValue2 && calculateValue1 && lastButton === 'operation') {
-    calculateValue2 = parseInt(label)
-  } else if (calculateValue2 && calculateValue1) {
-    calculateValue2 = parseInt(value2 + label)
-  }
-
-  return {
-    calculateValue1,
-    calculateValue2
-  }
-}
 
 type calculatorOperationType = {
   (
@@ -113,10 +67,10 @@ const calculatorOperation: calculatorOperationType = (
         currentOperation,
         ...calculateData
       }
-    } else if (!currentOperation) {
-      currentOperation = label
     } else if (currentOperation && calculateData.calculateValue1 && calculateData.calculateValue2 && label === '=') {
       result = operationsMap(operationsMapData, currentOperation)(calculateData.calculateValue1, calculateData.calculateValue2)
+    } else {
+      currentOperation = label
     }
   }
 
