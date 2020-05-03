@@ -1,4 +1,4 @@
-import calculatorOperation, { generateOperationText, operationsMap, operationsMapData } from './calculatorOperation'
+import calculatorOperation, { calculateValue, generateOperationText, operationsMap, operationsMapData } from './calculatorOperation'
 
 describe('generateOperationText method', () => {
   it ('should return string of value1', () => {
@@ -99,5 +99,37 @@ describe('operationsMap method', () => {
 
   it('on "x" should return multi function', () => {
     expect(operationsMap(operationsMapData, 'x')).toBe(operationsMapData['x'])
+  })
+})
+
+describe('calculateValue method', () => {
+  it('for value1, value2 and operation value update value2', () => {
+    const expectObject = {
+      calculateValue1: 10,
+      calculateValue2: 20
+    }
+
+    expect(calculateValue(10, 2, '0', 'operation'))
+      .toMatchObject(expectObject)
+  })
+
+  it('for value1 and lastButton operation create value2', () => {
+    const expectObject = {
+      calculateValue1: 10,
+      calculateValue2: 2
+    }
+
+    expect(calculateValue(10, undefined, '2', 'operation'))
+      .toMatchObject(expectObject)
+  })
+
+  it('for value1 and lastButton value update value1', () => {
+    const expectObject = {
+      calculateValue1: 10,
+      calculateValue2: undefined
+    }
+
+    expect(calculateValue(1, undefined, '0', 'value'))
+      .toMatchObject(expectObject)
   })
 })
