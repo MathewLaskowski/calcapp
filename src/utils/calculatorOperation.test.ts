@@ -11,30 +11,23 @@ describe('generateOperationText method', () => {
 })
 
 describe('calculatorOperation method', () => {
-  let value1: undefined | number
-  let value2: undefined | number
-  let lastButton: undefined | string
-  let operation: undefined | string
-  const expectObject: {
-    operationText: string,
-    result: undefined | number
-  } = {
-    operationText: '',
-    result: undefined
+  const expectedObject = {
+    operationText: '1',
+    result: undefined,
+    currentOperation: undefined,
+    calculateValue1: 1,
+    calculateValue2: undefined
   }
-
-  beforeEach(() => {
-    value1 = undefined
-    value2 = undefined
-    lastButton = undefined
-    operation = undefined
-    expectObject.operationText = ''
-    expectObject.result = undefined
+  it('should return only value1 and operationText', () => {
+    expect(calculatorOperation(
+      '1',
+      'value',
+      undefined,
+      undefined,
+      undefined,
+      undefined
+    )).toMatchObject(expectedObject)
   })
-
-  // it('should return object with operationText and result keys', () => {
-  //   expect(calculatorOperation('=', 'operation')).toStrictEqual(expectObject)
-  // })
 })
 
 describe('operationsMap method', () => {
