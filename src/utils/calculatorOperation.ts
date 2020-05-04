@@ -1,20 +1,6 @@
 import { calculateValue } from './calculateValue';
 import { generateOperationText } from './generateOperationText';
-
-type operationsMapDataType = {
-  [key: string]: (a: number, b: number) => number
-}
-
-export const operationsMapData: operationsMapDataType = {
-  '+': (a, b) => a + b,
-  '-': (a, b) => a - b,
-  'x': (a, b) => a * b,
-  '/': (a, b) => a / b
-}
-
-export const operationsMap = (operationsMapData: operationsMapDataType, operation: string): (a: number, b: number) => number => {
-  return operationsMapData[operation]
-}
+import operationsMap, { operationsMapData } from './operationsMap';
 
 type ValuesType = number | undefined
 
