@@ -8,7 +8,7 @@ type CalculatorButtonProps = {
   handleClick(label: string): void
 }
 
-const CalculatorButton: React.FC<CalculatorButtonProps> = ({ label, size, bold, handleClick }) => (
+const CalculatorButton: React.FC<CalculatorButtonProps> = ({ label, size, bold, handleClick }): ReactElement => (
   <Button onClick={() => handleClick(label)} size={size} bold={bold}>{label}</Button>
 )
 
