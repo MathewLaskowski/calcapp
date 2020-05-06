@@ -5,8 +5,6 @@ type CalculatorResultProps = {
   result?: number
 }
 
-const CalculatorResult: React.FC<CalculatorResultProps> = ({ result }) => (
-  <Result>{result}</Result>
-)
+const CalculatorResult: React.FC<CalculatorResultProps> = ({ result }) => <Result>{result}</Result>
 
 export default CalculatorResult
