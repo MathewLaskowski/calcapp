@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { observer, inject } from 'mobx-react'
 import CalculatorButton from '../calculator-button/calculator-button.component';
 import CalculatorResult from '../calculator-result/calculator-result.component';
 
@@ -14,7 +15,8 @@ let value2: undefined | number
 let lastButton: undefined | string
 let operation: undefined | string
 
-const Calculator: React.FC = () => {
+const Calculator: React.FC = (props) => {
+  console.log(props.calculatorStore)
 
   const [operationText, setOperationText] = useState()
   const [result, setResult] = useState()
@@ -67,4 +69,4 @@ const Calculator: React.FC = () => {
   )
 }
 
-export default Calculator
+export default inject('calculatorStore')(observer(Calculator))
