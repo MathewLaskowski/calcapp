@@ -27,7 +27,8 @@ interface CalculatorProps {
 }
 
 const Calculator: React.FC<CalculatorProps> = (props) => {
-  console.log(props.calculatorStore)
+
+  let { value1, value2, lastButton, operation } = props.calculatorStore as CalculatorStore
 
   const [operationText, setOperationText] = useState()
   const [result, setResult] = useState()
@@ -61,7 +62,7 @@ const Calculator: React.FC<CalculatorProps> = (props) => {
     }
   }
 
-  const renderRows = () => data.map(item => (
+  const renderRows = (): JSX.Element[] => data.map(item => (
     <Row key={JSON.stringify(item)}>
       {item.map(
         (element: {label: string, size?: 'big' | 'small' }) => (

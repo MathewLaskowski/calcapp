@@ -6,7 +6,6 @@ import RootStore from './stores/rootStore';
 const rootStore = new RootStore()
 
 function App() {
-  console.log('render')
   return (
     <Provider
       calculatorStore = {rootStore.calculatorStore}
