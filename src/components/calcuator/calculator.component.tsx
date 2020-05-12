@@ -15,7 +15,18 @@ let value2: undefined | number
 let lastButton: undefined | string
 let operation: undefined | string
 
-const Calculator: React.FC = (props) => {
+interface CalculatorStore {
+  value1: undefined | number
+  value2: undefined | number
+  lastButton: undefined | string
+  operation: undefined | string
+}
+
+interface CalculatorProps {
+  calculatorStore?: CalculatorStore
+}
+
+const Calculator: React.FC<CalculatorProps> = (props) => {
   console.log(props.calculatorStore)
 
   const [operationText, setOperationText] = useState()
