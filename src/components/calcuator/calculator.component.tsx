@@ -57,10 +57,10 @@ const Calculator: React.FC<CalculatorProps> = (props) => {
     setResult(result)
 
     if (result) {
-      lastButton = undefined
-      value1 = undefined
-      value2 = undefined
-      operation = undefined
+      setLastButton(undefined)
+      setValue1(undefined)
+      setValue2(undefined)
+      setOperation(undefined)
     }
   }
 
