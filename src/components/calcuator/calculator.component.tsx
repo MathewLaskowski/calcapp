@@ -10,11 +10,6 @@ import { Row, CalculatorLayout } from './calculator.styles'
 
 import { data } from './data';
 
-let value1: undefined | number
-let value2: undefined | number
-let lastButton: undefined | string
-let operation: undefined | string
-
 interface CalculatorStore {
   value1: undefined | number
   value2: undefined | number
@@ -48,10 +43,12 @@ const Calculator: React.FC<CalculatorProps> = (props) => {
       lastButton,
       operation
     )
+
     lastButton = calculatorButtonParse(label)
     value1 = calculateValue1
     value2 = calculateValue2
     operation = currentOperation
+
     setOperationText(operationText)
     setResult(result)
     if (result) {
