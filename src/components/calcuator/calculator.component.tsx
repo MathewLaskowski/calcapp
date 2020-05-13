@@ -15,6 +15,10 @@ interface CalculatorStore {
   value2: undefined | number
   lastButton: undefined | string
   operation: undefined | string
+  setValue1: (value: undefined | number) => void,
+  setValue2: (value: undefined | number) => void,
+  setLastButton: (value: undefined | string) => void,
+  setOperation: (value: undefined | string) => void
 }
 
 interface CalculatorProps {
@@ -23,7 +27,7 @@ interface CalculatorProps {
 
 const Calculator: React.FC<CalculatorProps> = (props) => {
 
-  let { value1, value2, lastButton, operation } = props.calculatorStore as CalculatorStore
+  let { value1, value2, lastButton, operation, setValue1, setValue2, setLastButton, setOperation } = props.calculatorStore as CalculatorStore
 
   const [operationText, setOperationText] = useState()
   const [result, setResult] = useState()
@@ -44,13 +48,14 @@ const Calculator: React.FC<CalculatorProps> = (props) => {
       operation
     )
 
-    lastButton = calculatorButtonParse(label)
-    value1 = calculateValue1
-    value2 = calculateValue2
-    operation = currentOperation
+    setLastButton(calculatorButtonParse(label))
+    setValue1(calculateValue1)
+    setValue2(calculateValue2)
+    setOperation(currentOperation)
 
     setOperationText(operationText)
     setResult(result)
+
     if (result) {
       lastButton = undefined
       value1 = undefined
