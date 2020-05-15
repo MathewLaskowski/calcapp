@@ -1,14 +1,17 @@
 import { observable, action } from "mobx"
 
+type num = undefined | number
+type str = undefined | string
+
 export interface CalculatorStoreType {
-  value1: undefined | number
-  value2: undefined | number
-  lastButton: undefined | string
-  operation: undefined | string
-  setValue1: (value: undefined | number) => void,
-  setValue2: (value: undefined | number) => void,
-  setLastButton: (value: undefined | string) => void,
-  setOperation: (value: undefined | string) => void
+  value1: num
+  value2: num
+  lastButton: str
+  operation: str
+  setValue1: (value: num) => void,
+  setValue2: (value: num) => void,
+  setLastButton: (value: str) => void,
+  setOperation: (value: str) => void
 }
 
 export default class CalculatorStore {
