@@ -15,28 +15,28 @@ export interface CalculatorStoreType {
 }
 
 export default class CalculatorStore {
-  @observable value1: undefined | number
-  @observable value2: undefined | number
-  @observable lastButton: undefined | string
-  @observable operation: undefined | string
+  @observable value1: num
+  @observable value2: num
+  @observable lastButton: str
+  @observable operation: str
 
   @action
-  setValue1 = (value: undefined | number) => {
+  setValue1 = (value: num) => {
     this.value1 = value
   }
 
   @action
-  setValue2 = (value: undefined | number) => {
+  setValue2 = (value: num) => {
     this.value2 = value
   }
 
   @action
-  setLastButton = (value: undefined | string) => {
+  setLastButton = (value: str) => {
     this.lastButton = value
   }
 
   @action
-  setOperation = (value: undefined | string) => {
+  setOperation = (value: str) => {
     this.operation = value
   }
 }
