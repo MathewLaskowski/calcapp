@@ -73,7 +73,7 @@ const Calculator: React.FC<CalculatorProps> = (props) => {
     <CalculatorLayout>
       <CalculatorResult result={result} />
       {renderRows()}
-      <div style={{ fontSize: '2rem', color: 'white' }}>{operationText}</div>
+      <div style={{ fontSize: '2rem', color: 'white', display: 'flex', justifyContent: 'center' }}>{operationText}</div>
     </CalculatorLayout>
   )
 }
