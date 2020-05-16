@@ -30,10 +30,10 @@ const Calculator: React.FC<CalculatorProps> = (props) => {
     const { operationText, result, currentOperation,
       calculateValue1, calculateValue2
     } = calculatorOperation( label, calculatorButtonParse(label),
-      value1, value2, lastButton, operation
+      value1, value2, calculatorButtonParse(lastButton || ''), operation
     )
 
-    setLastButton(calculatorButtonParse(label))
+    setLastButton(label)
     setValue1(calculateValue1)
     setValue2(calculateValue2)
     setOperation(currentOperation)
