@@ -26,7 +26,22 @@ const Calculator: React.FC<CalculatorProps> = (props) => {
   const [operationText, setOperationText] = useState()
   const [result, setResult] = useState()
 
+  const clearMethod = () => {
+    setLastButton(undefined)
+    setValue1(undefined)
+    setValue2(undefined)
+    setOperation(undefined)
+  }
+
   const handleClickButton = (label: string): void => {
+
+    if (label === 'AC') {
+      clearMethod()
+      setOperationText(undefined)
+      setResult(undefined)
+      return
+    }
+
     const { operationText, result, currentOperation,
       calculateValue1, calculateValue2
     } = calculatorOperation( label, calculatorButtonParse(label),
@@ -41,12 +56,7 @@ const Calculator: React.FC<CalculatorProps> = (props) => {
     setOperationText(operationText)
     setResult(result)
 
-    if (result) {
-      setLastButton(undefined)
-      setValue1(undefined)
-      setValue2(undefined)
-      setOperation(undefined)
-    }
+    if (result) clearMethod()
   }
 
   const renderRows = (): JSX.Element[] => data.map(item => (
