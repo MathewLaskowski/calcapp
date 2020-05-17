@@ -3,7 +3,7 @@ import { generateOperationText } from './generateOperationText';
 import operationsMap, { operationsMapData } from './operationsMap';
 
 type ValuesType = number | undefined
-type TypeOfValue = undefined | 'integer' | 'float'
+type TypeOfValue = 'integer' | 'float'
 
 type calculatorOperationType = {
   (
@@ -11,6 +11,8 @@ type calculatorOperationType = {
     type: string,
     value1: ValuesType,
     value2: ValuesType,
+    typeOfValue1: TypeOfValue,
+    typeOfValue2: TypeOfValue,
     lastButton: string | undefined,
     operation: string | undefined
   ) : {
@@ -18,7 +20,9 @@ type calculatorOperationType = {
     result: ValuesType,
     currentOperation: string | undefined,
     calculateValue1: ValuesType,
-    calculateValue2: ValuesType
+    calculateValue2: ValuesType,
+    calculateTypeOfValue1: TypeOfValue,
+    calculateTypeOfValue2: TypeOfValue
   }
 }
 
@@ -28,6 +32,8 @@ const calculatorOperation: calculatorOperationType = (
   type,
   value1,
   value2,
+  typeOfValue1,
+  typeOfValue2,
   lastButton,
   operation
 ) => {
@@ -35,21 +41,21 @@ const calculatorOperation: calculatorOperationType = (
   let currentOperation = operation
   let calculateData: {
     calculateValue1: ValuesType,
-    typeOfValue1: TypeOfValue
+    calculateTypeOfValue1: TypeOfValue
     calculateValue2: ValuesType
-    typeOfValue2: TypeOfValue
+    calculateTypeOfValue2: TypeOfValue
   } = {
     calculateValue1: value1,
-    typeOfValue1: 'integer',
+    calculateTypeOfValue1: typeOfValue1,
     calculateValue2: value2,
-    typeOfValue2: 'integer'
+    calculateTypeOfValue2: typeOfValue2
   }
 
   if (type === 'separator') {
     const { calculateValue1, calculateValue2 } = calculateData
     if (!calculateValue1 && !calculateValue2) {
       calculateData.calculateValue1 = 0
-      calculateData.typeOfValue1 = 'float'
+      calculateData.calculateTypeOfValue1 = 'float'
     }
   }
 

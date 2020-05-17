@@ -20,7 +20,8 @@ interface CalculatorProps {
 const Calculator: React.FC<CalculatorProps> = (props) => {
 
   let { value1, value2, lastButton, operation, setValue1,
-    setValue2, setLastButton, setOperation
+    setValue2, setLastButton, setOperation, typeOfValue1, typeOfValue2,
+    setTypeOfValue1, setTypeOfValue2
   } = props.calculatorStore as CalculatorStoreType
 
   const [operationText, setOperationText] = useState()
@@ -29,6 +30,8 @@ const Calculator: React.FC<CalculatorProps> = (props) => {
   const clearMethod = () => {
     setValue1(undefined)
     setValue2(undefined)
+    setTypeOfValue1('integer')
+    setTypeOfValue2('integer')
     setOperation(undefined)
   }
 
@@ -42,14 +45,16 @@ const Calculator: React.FC<CalculatorProps> = (props) => {
     }
 
     const { operationText, result, currentOperation,
-      calculateValue1, calculateValue2
+      calculateValue1, calculateValue2, calculateTypeOfValue1, calculateTypeOfValue2
     } = calculatorOperation( label, calculatorButtonParse(label),
-      value1, value2, calculatorButtonParse(lastButton || ''), operation
+      value1, value2, typeOfValue1, typeOfValue2, calculatorButtonParse(lastButton || ''), operation
     )
 
     setLastButton(label)
     setValue1(calculateValue1)
     setValue2(calculateValue2)
+    setTypeOfValue1(calculateTypeOfValue1)
+    setTypeOfValue2(calculateTypeOfValue2)
     setOperation(currentOperation)
 
     setOperationText(operationText)
