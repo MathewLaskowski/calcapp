@@ -5,6 +5,13 @@ import operationsMap, { operationsMapData } from './operationsMap';
 type ValuesType = number | undefined
 type TypeOfValue = 'integer' | 'float'
 
+export type calculateDataType = {
+  calculateValue1: ValuesType,
+  calculateTypeOfValue1: TypeOfValue
+  calculateValue2: ValuesType
+  calculateTypeOfValue2: TypeOfValue
+}
+
 type calculatorOperationType = {
   (
     label: string,
@@ -39,12 +46,7 @@ const calculatorOperation: calculatorOperationType = (
 ) => {
   let result = undefined
   let currentOperation = operation
-  let calculateData: {
-    calculateValue1: ValuesType,
-    calculateTypeOfValue1: TypeOfValue
-    calculateValue2: ValuesType
-    calculateTypeOfValue2: TypeOfValue
-  } = {
+  let calculateData: calculateDataType = {
     calculateValue1: value1,
     calculateTypeOfValue1: typeOfValue1,
     calculateValue2: value2,
