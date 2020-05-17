@@ -27,7 +27,6 @@ const Calculator: React.FC<CalculatorProps> = (props) => {
   const [result, setResult] = useState()
 
   const clearMethod = () => {
-    setLastButton(undefined)
     setValue1(undefined)
     setValue2(undefined)
     setOperation(undefined)
