@@ -3,6 +3,7 @@ import { generateOperationText } from './generateOperationText';
 import operationsMap, { operationsMapData } from './operationsMap';
 
 type ValuesType = number | undefined
+type TypeOfValue = undefined | 'integer' | 'float'
 
 type calculatorOperationType = {
   (
@@ -33,11 +34,19 @@ const calculatorOperation: calculatorOperationType = (
   let result = undefined
   let currentOperation = operation
   let calculateData: {
-    calculateValue1: ValuesType
+    calculateValue1: ValuesType,
+    typeOfValue1: TypeOfValue
     calculateValue2: ValuesType
+    typeOfValue2: TypeOfValue
   } = {
     calculateValue1: value1,
-    calculateValue2: value2
+    typeOfValue1: undefined,
+    calculateValue2: value2,
+    typeOfValue2: undefined
+  }
+
+  if (type === 'separator') {
+    calculateData.calculateValue1 = parseFloat('0.0')
   }
 
 

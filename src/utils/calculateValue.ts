@@ -1,4 +1,5 @@
 type ValuesType = number | undefined
+type TypeOfValue = undefined | 'integer' | 'float'
 
 type CalculateValueType = {
   (
@@ -8,7 +9,9 @@ type CalculateValueType = {
     lastButton: string | undefined
   ): {
     calculateValue1: ValuesType,
-    calculateValue2: ValuesType
+    typeOfValue1: TypeOfValue,
+    calculateValue2: ValuesType,
+    typeOfValue2: TypeOfValue
   }
 }
 
@@ -28,6 +31,8 @@ export const calculateValue: CalculateValueType = (value1, value2, label, lastBu
 
   return {
     calculateValue1,
-    calculateValue2
+    typeOfValue1: undefined,
+    calculateValue2,
+    typeOfValue2: undefined
   }
 }
