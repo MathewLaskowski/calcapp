@@ -58,6 +58,9 @@ const calculatorOperation: calculatorOperationType = (
     if (!calculateValue1 && !calculateValue2) {
       calculateData.calculateValue1 = 0
       calculateData.calculateTypeOfValue1 = 'float'
+    } else if (calculateValue1 && !calculateValue2) {
+      calculateData.calculateValue2 = 0
+      calculateData.calculateTypeOfValue2 = 'float'
     }
   }
 
