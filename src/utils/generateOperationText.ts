@@ -13,6 +13,8 @@ export const generateOperationText: generateOperationTextType = (
   operation,
   result
 ) => {
-  const { calculateValue1: value1, calculateValue2: value2 } = calculatedData
-  return `${typeof value1 !== 'undefined' ? value1 : ''} ${operation ? operation : ''} ${value2 ? value2 : ''} ${result ? `= ${result}` : ''}`.trim()
+  const { calculateValue1: value1, calculateValue2: value2, typeOfValue1, typeOfValue2 } = calculatedData
+  const valueText1 = typeof value1 !== 'undefined' ? value1 === 0 && typeOfValue1 === 'float' ? '0.' : value1  : ''
+
+  return `${valueText1} ${operation ? operation : ''} ${value2 ? value2 : ''} ${result ? `= ${result}` : ''}`.trim()
 }
