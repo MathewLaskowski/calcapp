@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { observer, inject } from 'mobx-react'
 
-import { CalculatorStoreType } from '../../stores/ClipboardStore';
+import { CalculatorStoreType } from '../../stores/CalculatorStore';
 
 import CalculatorButton from '../calculator-button/calculator-button.component';
 import CalculatorResult from '../calculator-result/calculator-result.component';

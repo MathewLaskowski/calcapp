@@ -26,7 +26,6 @@ export const calculateValue: CalculateValueType = (calculateData, label, lastBut
     calculateValue1 = parseInt(label)
   } else if (checkForUndefined(calculateValue1) && !checkForUndefined(calculateValue2) && lastButton !== 'operation') {
     if (typeOfValue1 === 'float' && calculateValue1 === 0 && label !== '.') {
-      const test = `0.${label}`
       calculateValue1 = parseFloat(`0.${label}`)
     } else {
       calculateValue1 = parseInt(value1 + label)

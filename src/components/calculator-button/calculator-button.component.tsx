@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { observer, inject } from 'mobx-react'
-import {CalculatorStoreType} from '../../stores/ClipboardStore';
+import {CalculatorStoreType} from '../../stores/CalculatorStore';
 
 import { Button } from './calculator-button.styles'
 

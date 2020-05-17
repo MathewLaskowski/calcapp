@@ -1,4 +1,4 @@
-import CalculatorStore from './ClipboardStore';
+import CalculatorStore from './CalculatorStore';
 
 export default class RootStore {
   calculatorStore: object
