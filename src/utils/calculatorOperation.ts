@@ -40,15 +40,18 @@ const calculatorOperation: calculatorOperationType = (
     typeOfValue2: TypeOfValue
   } = {
     calculateValue1: value1,
-    typeOfValue1: undefined,
+    typeOfValue1: 'integer',
     calculateValue2: value2,
-    typeOfValue2: undefined
+    typeOfValue2: 'integer'
   }
 
   if (type === 'separator') {
-    calculateData.calculateValue1 = parseFloat('0.0')
+    const { calculateValue1, calculateValue2 } = calculateData
+    if (!calculateValue1 && !calculateValue2) {
+      calculateData.calculateValue1 = 0
+      calculateData.typeOfValue1 = 'float'
+    }
   }
-
 
   if (type === 'value') {
     calculateData = calculateValue(value1, value2, label, lastButton)
@@ -70,8 +73,7 @@ const calculatorOperation: calculatorOperationType = (
   }
 
   const operationText = generateOperationText(
-    calculateData.calculateValue1,
-    calculateData.calculateValue2,
+    calculateData,
     currentOperation,
     result
   )
