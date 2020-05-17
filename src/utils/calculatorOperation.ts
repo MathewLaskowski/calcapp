@@ -53,8 +53,8 @@ const calculatorOperation: calculatorOperationType = (
     }
   }
 
-  if (type === 'value') {
-    calculateData = calculateValue(value1, value2, label, lastButton)
+  if (type === 'value' || type === 'separator') {
+    calculateData = calculateValue(calculateData, label, lastButton)
   }
 
   if (type === 'operation') {
