@@ -28,17 +28,21 @@ export const calculateValue: CalculateValueType = (calculateData, label, lastBut
   const checkForUndefined = (value: any) => typeof value !== 'undefined'
 
   if (!checkForUndefined(calculateValue1) && !checkForUndefined(calculateValue2)) {
-    calculateValue1 = parseInt(label)
+    calculateValue1 = parseFloat(label)
   } else if (checkForUndefined(calculateValue1) && !checkForUndefined(calculateValue2) && lastButton !== 'operation') {
     if (calculateTypeOfValue1 === 'float' && calculateValue1 === 0 && label !== '.') {
       calculateValue1 = parseFloat(`0.${label}`)
     } else {
-      calculateValue1 = parseInt(value1 + label)
+      calculateValue1 = parseFloat(value1 + label)
     }
   } else if (!checkForUndefined(calculateValue2) && checkForUndefined(calculateValue1) && lastButton === 'operation') {
-    calculateValue2 = parseInt(label)
+    calculateValue2 = parseFloat(label)
   } else {
-    calculateValue2 = parseInt(value2 + label)
+    if (calculateTypeOfValue2 === 'float' && calculateValue2 === 0 && label !== '.') {
+      calculateValue2 = parseFloat(`0.${label}`)
+    } else {
+      calculateValue2 = parseFloat(value2 + label)
+    }
   }
 
   return {
