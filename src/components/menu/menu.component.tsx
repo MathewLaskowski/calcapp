@@ -1,9 +1,10 @@
 import React from 'react'
-import { MenuContainer } from './menu.styles'
+import { MenuContainer, Title, SubTitle } from './menu.styles'
 
 const Menu = () => (
   <MenuContainer>
-    Calculated
+    <Title>Calculated</Title>
+    <SubTitle>Select your calculator</SubTitle>
   </MenuContainer>
 )
 
