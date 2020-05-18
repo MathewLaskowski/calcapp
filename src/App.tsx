@@ -13,8 +13,10 @@ function App() {
     <Provider
       calculatorStore = {rootStore.calculatorStore}
     >
-      <Menu />
-      <Calculator />
+      <div style={{ display: 'flex', height: '100vh' }}>
+        <Menu />
+        <Calculator />
+      </div>
     </Provider>
   );
 }

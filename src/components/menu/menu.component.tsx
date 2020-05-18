@@ -1,5 +1,10 @@
 import React from 'react'
+import { MenuContainer } from './menu.styles'
 
-const Menu = () => <div>Menu</div>
+const Menu = () => (
+  <MenuContainer>
+    Calculated
+  </MenuContainer>
+)
 
 export default Menu
