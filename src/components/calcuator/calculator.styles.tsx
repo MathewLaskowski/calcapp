@@ -5,5 +5,8 @@ export const Row = styled.div`
 `
 
 export const CalculatorLayout = styled.div`
-  width: 276px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `
