@@ -8,3 +8,5 @@ export const Icon = styled.div`
   height: 50px;
   background-color: #161E2B;
 `
+
+export const Layout = styled.div``

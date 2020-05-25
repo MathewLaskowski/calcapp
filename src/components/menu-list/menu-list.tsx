@@ -1,11 +1,11 @@
 import React from 'react'
-import { Icon } from './menu-list.styles'
+import { Layout, Icon } from './menu-list.styles'
 
 const MenuList = () => (
-  <div>
+  <Layout>
     <Icon>123</Icon>
     <Icon>456</Icon>
-  </div>
+  </Layout>
 )
 
 export default MenuList
