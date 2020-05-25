@@ -9,4 +9,10 @@ export const Icon = styled.div`
   background-color: #161E2B;
 `
 
-export const Layout = styled.div``
+export const Layout = styled.div`
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0;
+  width: 100%;
+  height: 100%;
+`
