@@ -3,8 +3,8 @@ import { Layout, Icon } from './menu-list.styles'
 
 const MenuList = () => (
   <Layout>
-    <Icon>123</Icon>
-    <Icon>456</Icon>
+    <Icon>Calculator</Icon>
+    <Icon>Apps</Icon>
   </Layout>
 )
 
