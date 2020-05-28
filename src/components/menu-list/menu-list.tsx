@@ -5,6 +5,8 @@ const MenuList = () => (
   <Layout>
     <Icon>Calculator</Icon>
     <Icon>Apps</Icon>
+    <Icon>Tools</Icon>
+    <Icon>Notes</Icon>
   </Layout>
 )
 
