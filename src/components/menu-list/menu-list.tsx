@@ -3,10 +3,14 @@ import { Layout, Icon } from './menu-list.styles'
 
 const MenuList = () => (
   <Layout>
-    <Icon>Calculator</Icon>
-    <Icon>Apps</Icon>
-    <Icon>Tools</Icon>
-    <Icon>Notes</Icon>
+    <div>
+      <Icon>Calculator</Icon>
+      <Icon>Apps</Icon>
+    </div>
+    <div>
+      <Icon>Tools</Icon>
+      <Icon>Notes</Icon>
+    </div>
   </Layout>
 )
 
