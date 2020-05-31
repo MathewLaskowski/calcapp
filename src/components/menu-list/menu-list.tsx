@@ -7,6 +7,7 @@ const MenuList = () => (
       <Icon>Calculator</Icon>
       <Icon>Apps</Icon>
       <Icon>Configuration</Icon>
+      <Icon>News</Icon>
     </div>
   </Layout>
 )
