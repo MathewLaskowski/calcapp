@@ -9,6 +9,7 @@ const MenuList = () => (
       <Icon>Configuration</Icon>
       <Icon>News</Icon>
       <Icon>Metrics</Icon>
+      <Icon>Others</Icon>
     </div>
   </Layout>
 )
