@@ -6,7 +6,6 @@ const MenuList = () => (
     <div>
       <Icon>Calculator</Icon>
       <Icon>Apps</Icon>
-      <Icon>Configuration</Icon>
     </div>
   </Layout>
 )
