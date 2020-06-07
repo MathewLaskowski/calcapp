@@ -5,12 +5,13 @@ const handleClick = () => {
   console.log('click')
 }
 
-const MenuListItems = ['Calculator', 'Apps']
+const menuListItems = ['Calculator', 'Apps']
 
 const MenuList = () => (
   <Layout>
-    <Icon onClick={handleClick}>Calculator</Icon>
-    <Icon onClick={handleClick}>Apps</Icon>
+    {menuListItems.map(el => (
+      <Icon key={el} onClick={handleClick}>{el}</Icon>
+    ))}
   </Layout>
 )
 
