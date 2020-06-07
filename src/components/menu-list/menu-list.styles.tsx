@@ -8,6 +8,10 @@ export const Icon = styled.div`
   min-width: 50px;
   height: 50px;
   background-color: #161E2B;
+  
+  &:hover {
+    background-color: #6B63FF;
+  }
 `
 
 export const Layout = styled.div`
