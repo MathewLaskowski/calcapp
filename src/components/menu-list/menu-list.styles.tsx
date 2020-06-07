@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Icon = styled.div`
   display: flex;
+  padding: 10px;
   justify-content: center;
   align-items: center;
   min-width: 50px;
