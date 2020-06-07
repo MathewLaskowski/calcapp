@@ -5,6 +5,8 @@ const handleClick = () => {
   console.log('click')
 }
 
+const MenuListItems = ['Calculator', 'Apps']
+
 const MenuList = () => (
   <Layout>
     <Icon onClick={handleClick}>Calculator</Icon>
