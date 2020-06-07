@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { Layout, Icon } from './menu-list.styles'
 
-const handleClick = (item: string): void => {
+type handleClickType = (item: string) => void
+
+const handleClick: handleClickType = item => {
   console.log(item)
 }
 
