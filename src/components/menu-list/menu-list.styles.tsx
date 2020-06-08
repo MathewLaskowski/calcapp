@@ -13,10 +13,6 @@ export const Icon = styled.div<IconType>`
   height: 50px;
   background-color: ${({ active }) => active ? '#6B63FF' : '#161E2B'};
   cursor: pointer;
-  
-  &:hover {
-    background-color: #6B63FF;
-  }
 `
 
 export const Layout = styled.div`
