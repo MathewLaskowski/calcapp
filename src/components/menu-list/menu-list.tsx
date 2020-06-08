@@ -7,7 +7,10 @@ const menuListItems = ['Calculator', 'Apps']
 
 const MenuList = () => {
 
+  const [activeItem, setActiveItem] = useState()
+
   const handleClick: handleClickType = item => {
+    setActiveItem(item)
     console.log(item)
   }
 
