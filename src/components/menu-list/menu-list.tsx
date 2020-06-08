@@ -17,7 +17,13 @@ const MenuList = () => {
   return (
     <Layout>
       {menuListItems.map(el => (
-        <Icon key={el} onClick={() => handleClick(el)}>{el}</Icon>
+        <Icon
+          key={el}
+          onClick={() => handleClick(el)}
+          active={el === activeItem}
+        >
+          {el}
+        </Icon>
       ))}
     </Layout>
   )

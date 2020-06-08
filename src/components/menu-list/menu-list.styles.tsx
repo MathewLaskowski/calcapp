@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const Icon = styled.div`
+type IconType = {
+  active?: boolean
+}
+
+export const Icon = styled.div<IconType>`
   display: flex;
   padding: 10px;
   justify-content: center;
