@@ -11,7 +11,7 @@ export const Icon = styled.div<IconType>`
   align-items: center;
   min-width: 50px;
   height: 50px;
-  background-color: #161E2B;
+  background-color: ${({ active }) => active ? '#6B63FF' : '#161E2B'};
   cursor: pointer;
   
   &:hover {
