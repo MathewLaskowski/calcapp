@@ -12,6 +12,7 @@ function App() {
   return (
     <Provider
       calculatorStore = {rootStore.calculatorStore}
+      uiStore = {rootStore.uiStore}
     >
       <div style={{ display: 'flex', height: '100vh' }}>
         <Menu />
