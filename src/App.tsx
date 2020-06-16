@@ -3,6 +3,7 @@ import { Provider } from 'mobx-react'
 
 import Calculator from './components/calcuator/calculator.component';
 import Menu from './components/menu/menu.component'
+import Layout from './components/layout/layout.component';
 
 import RootStore from './stores/rootStore';
 
@@ -16,7 +17,9 @@ function App() {
     >
       <div style={{ display: 'flex', height: '100vh' }}>
         <Menu />
-        <Calculator />
+        <Layout>
+          <Calculator />
+        </Layout>
       </div>
     </Provider>
   );
