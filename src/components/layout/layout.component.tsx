@@ -4,7 +4,7 @@ import { LayoutContainer } from './layout.styles'
 
 const Layout: React.FC = ({ children }) => (
   <LayoutContainer>
-    {/*<Menu />*/}
+    <Menu />
   </LayoutContainer>
 )
 
