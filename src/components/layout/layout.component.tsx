@@ -1,10 +1,11 @@
 import React from 'react';
 import Menu from '../menu/menu.component'
+import { LayoutContainer } from './layout.styles'
 
 const Layout: React.FC = ({ children }) => (
-  <div>
+  <LayoutContainer>
     {/*<Menu />*/}
-  </div>
+  </LayoutContainer>
 )
 
 export default Layout
