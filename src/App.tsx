@@ -16,7 +16,7 @@ function App() {
       uiStore = {rootStore.uiStore}
     >
       <div style={{ display: 'flex', height: '100vh' }}>
-        <Menu />
+        {/*<Menu />*/}
         <Layout>
           <Calculator />
         </Layout>
