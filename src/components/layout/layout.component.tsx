@@ -5,7 +5,7 @@ import { LayoutContainer } from './layout.styles'
 
 const Layout: React.FC = () => (
   <LayoutContainer>
-    <Menu />
+    <Menu active='Calculator' />
     <Calculator />
   </LayoutContainer>
 )
