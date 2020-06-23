@@ -6,12 +6,12 @@ type handleClickType = (item: string) => void
 const menuListItems = ['Calculator', 'Apps']
 
 interface MenuList {
-  active?: 'Calculator' | 'Apps'
+  active: 'Calculator' | 'Apps'
 }
 
-const MenuList: React.FC<MenuList> = () => {
+const MenuList: React.FC<MenuList> = ({ active }) => {
 
-  const [activeItem, setActiveItem] = useState()
+  const [activeItem, setActiveItem] = useState<string>(active)
 
   const handleClick: handleClickType = item => {
     setActiveItem(item)
