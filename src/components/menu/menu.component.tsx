@@ -10,7 +10,7 @@ const Menu: React.FC<MenuProps> = ({ active }) => (
   <MenuContainer>
     <Title>Calculated</Title>
     <SubTitle>Select your calculator</SubTitle>
-    <MenuList />
+    <MenuList active={active} />
   </MenuContainer>
 )
 
