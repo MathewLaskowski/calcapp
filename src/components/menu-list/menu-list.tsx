@@ -15,7 +15,6 @@ const MenuList: React.FC<MenuList> = ({ active }) => {
 
   const handleClick: handleClickType = item => {
     setActiveItem(item)
-    console.log(item)
   }
 
   return (
