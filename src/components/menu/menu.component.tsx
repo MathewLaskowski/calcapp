@@ -9,7 +9,7 @@ interface MenuProps {
 const Menu: React.FC<MenuProps> = ({ active }) => (
   <MenuContainer>
     <Title>Calculated</Title>
-    <SubTitle>Select your calculator</SubTitle>
+    <SubTitle>Select your calculator!</SubTitle>
     <MenuList active={active} />
   </MenuContainer>
 )
