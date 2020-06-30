@@ -3,9 +3,16 @@ import Menu from '../menu/menu.component'
 import Calculator from '../calcuator/calculator.component';
 import { inject, observer } from 'mobx-react';
 import { LayoutContainer } from './layout.styles'
+import { UIStoreType } from '../../stores/UIStore'
 
-const Layout: React.FC = (props) => {
-  console.log(props)
+interface LayoutProps {
+  uiStore?: UIStoreType
+}
+
+const Layout: React.FC<LayoutProps> = ({ uiStore }) => {
+  if (uiStore) {
+    console.log(uiStore.selectedMenuText)
+  }
   return (
   <LayoutContainer>
     <Menu active='Calculator' />
