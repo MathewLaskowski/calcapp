@@ -10,13 +10,14 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ uiStore }) => {
+  let activeMenu: undefined | string
   if (uiStore) {
-    console.log(uiStore.selectedMenuText)
+    activeMenu = uiStore.selectedMenuText
   }
   return (
   <LayoutContainer>
     <Menu active='Calculator' />
-    <Calculator />
+    {activeMenu === 'Calculator' && <Calculator />}
   </LayoutContainer>
 )}
 
