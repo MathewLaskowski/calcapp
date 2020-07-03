@@ -5,7 +5,7 @@ export interface UIStoreType {
 }
 
 export default class UIStore {
-  @observable selectedMenuText: undefined | string
+  @observable selectedMenuText: undefined | string = 'Calculator'
 
   @action
   setSelectedMenuText = (value: string) => {
