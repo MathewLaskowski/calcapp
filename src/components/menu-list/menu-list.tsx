@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Layout, Icon } from './menu-list.styles'
+import { observer, inject } from 'mobx-react';
 
 type handleClickType = (item: string) => void
 
@@ -31,4 +32,4 @@ const MenuList: React.FC<MenuList> = ({ active }) => {
     </Layout>
   )
 }
-export default MenuList
+export default inject('uiStore')(observer(MenuList))
